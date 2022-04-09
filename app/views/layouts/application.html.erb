@@ -15,6 +15,13 @@
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Add new kitten!", new_kitten_path %></li>
     </ul>
+
+    <% flash.each do |type, messages| %>
+      <% messages.each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

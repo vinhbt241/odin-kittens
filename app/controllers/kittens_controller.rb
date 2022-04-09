@@ -15,8 +15,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.new(kitten_params)
 
     if @kitten.save 
-      redirect_to @kitten
+      redirect_to @kitten, notice: "Kitten info added!"
     else
+      flash.alert = @kitten.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,6 +32,7 @@ class KittensController < ApplicationController
     if @kitten.update(kitten_params)
       redirect_to @kitten
     else
+      flash.alert = @kitten.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
@@ -39,7 +41,7 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
     @kitten.destroy 
     
-    redirect_to root_path, notice: "Event removed successfully", status: 303
+    redirect_to root_path, notice: "Delete kitten info successfully", status: 303
   end
 
   private 
