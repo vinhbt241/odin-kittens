@@ -1,0 +1,11 @@
+<h1>All Kittens</h1>
+
+<ul>
+  <% @kittens.each do |kitten| %>
+    <li>
+      <p><%= kitten.name %></p>
+
+      <p><%= link_to "More about this kitten...", kitten_path(kitten) %></p>
+    </li>
+  <% end %>
+</ul>

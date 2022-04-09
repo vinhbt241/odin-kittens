@@ -39,7 +39,7 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
     @kitten.destroy 
     
-    redirect_to root_path
+    redirect_to root_path, notice: "Event removed successfully", status: 303
   end
 
   private 

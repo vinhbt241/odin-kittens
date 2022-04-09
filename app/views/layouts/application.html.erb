@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Add new kitten!", new_kitten_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>
